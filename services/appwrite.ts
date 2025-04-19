@@ -43,3 +43,18 @@ export const updateSearchCount = async (query: string, movie: Movie) => {
    //if a document is found , increemnt the searchCount field
    //if not , create a new document in Appwrite database 
     
+
+   export const getTrendingMovies = async () : Promise<TrendingMovie[] | undefined> => {
+    try{ 
+        const result = await database.listDocuments(DATABASE_ID,COLLECTION_ID,[
+            Query.limit(5), //first 5 trending movies as per the Database only
+            Query.orderDesc('count'), //Order descending based on count , number of times searched
+        ])
+
+        return result.documents as unknown as TrendingMovie[];
+    }
+    catch(e) {
+        console.log(e);
+        return undefined;
+    }
+   }
