@@ -7,6 +7,7 @@ import useFetch from '@/services/useFetch';
 import { StyleSheet, Text, Image, View, FlatList, ActivityIndicator } from 'react-native'
 import React, { useEffect } from 'react'
 import{useState} from 'react';
+import { updateSearchCount } from '@/services/appwrite';
 
 const Search = () => {
     const [searchQuery, setSearchQuery] = useState("");
@@ -19,17 +20,23 @@ const Search = () => {
       reset,
     } = useFetch(() => fetchMovies({ query: searchQuery }));
 
-    useEffect ( () => {
-        const timeoutId = setTimeout(async () => {
-            if(searchQuery.trim()) { 
-                await loadMovies();
-            }else{ 
-                reset()
-            }
-        },500);
-         return (() => clearTimeout(timeoutId));
+     // Debounced search effect
+  useEffect(() => {
+    const timeoutId = setTimeout(async () => {
+      if (searchQuery.trim()) {
+        await loadMovies();
 
-    },[searchQuery]);
+        // Call updateSearchCount only if there are results
+        if (movies?.length! > 0 && movies?.[0]) {
+          await updateSearchCount(searchQuery, movies[0]);
+        }
+      } else {
+        reset();
+      }
+    }, 500);
+
+    return () => clearTimeout(timeoutId);
+  }, [searchQuery]);
     return (
         <View className="flex-1 bg-primary">
           <Image
