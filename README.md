@@ -1,50 +1,72 @@
-# Welcome to your Expo app 👋
+# 🎬 Cine – Movie Discovery App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A beautifully crafted cross-platform mobile app built with **React Native**, **Expo** , **NativeWind** , Cine provides real-time access to the latest movies using the **TMDB API** and ranks trending content via a custom **Appwrite-powered algorithm**. With debounced search, dynamic routing, and a sleek UI, it delivers an engaging and scalable movie browsing experience.
 
-## Get started
+## 🚀 Features
 
-1. Install dependencies
+- 🎞️ Real-time fetching of newly released films with detailed metadata
+- 🔍 Debounced search functionality for optimized performance
+- 📈 Custom trending algorithm using Appwrite based on user search frequency
+- 📋 Dynamic movie detail screens with genres, revenue, budget, production data, and more
+- 🧭 Smooth navigation and back-stack handling
+- 🌐 Responsive and modern UI with NativeWind and Tailwind CSS
 
-   ```bash
-   npm install
-   ```
+## 🛠️ Tech Stack
 
-2. Start the app
+- **Frontend**: React Native (TypeScript), Expo, NativeWind
+- **Backend**: Appwrite (Database, Functions)
+- **API Integration**: TMDB API
+- **Deployment**: EAS Build, OTA Updates
 
-   ```bash
-    npx expo start
-   ```
+## 📦 Installation & Setup
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+1. **Clone the Repository**
 
 ```bash
-npm run reset-project
+git clone https://github.com/YourUsername/cine-app.git
+cd cine-app
+```
+2. Install Dependencies
+
+```bash
+npm install
+Set Up Environment Variables
+```
+3. Create a .env file in the root directory and add:
+```env
+TMDB_API_KEY=your_tmdb_api_key
+APPWRITE_ENDPOINT=https://cloud.appwrite.io/v1
+APPWRITE_PROJECT_ID=your_appwrite_project_id
+⚠️ Make sure your Appwrite project is set up with the necessary collections and permissions.
+```
+4. Start the App
+```bash
+npx expo start
+Scan the QR code with Expo Go on your phone (iOS or Android)
+Or launch it in an Android/iOS simulator
+```
+## 📂 Folder Structure
+```bash
+cine-app/
+├── assets/          # Icons and images
+├── components/      # Reusable UI components!
+├── screens/         # Home, Search, MovieDetails, etc.
+├── services/        # API and Appwrite service handlers
+├── utils/           # Constants and helper functions
+├── App.tsx          # Main entry point
+└── app.json         # Expo configuration
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
-## Learn more
+## Live Build 
+App is live to use it on Android Devices. Showing some of the screenshots of live app for reference.
+![Cine-1](https://github.com/user-attachments/assets/cbd9043a-17ca-4228-930f-7ccaa23faac7)
+![Cine-2](https://github.com/user-attachments/assets/7a6f3514-51b5-4ab6-bc03-8c98a6fa0378)
+![Cine-3](https://github.com/user-attachments/assets/6a9a0e06-09b7-463f-856e-59710ae6985d)
+![Cine-4](https://github.com/user-attachments/assets/c8b76f92-ae54-42f6-ac68-8ede52cbe941)
 
-To learn more about developing your project with Expo, look at the following resources:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## ⭐️ Show Your Support
+If you found this project helpful or interesting, feel free to give it a ⭐️, and fork it 
+share it with your peers!
 
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
